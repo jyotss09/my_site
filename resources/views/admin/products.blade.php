@@ -6,8 +6,9 @@
 <div class="container">
     <h1>Manage Products</h1>
     @if(session('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
+            <button type="button" class="btn-close" aria-label="Close"></button>
         </div>
     @endif
 
@@ -43,4 +44,16 @@
         </tbody>
     </table>
 </div>
+<script>
+     document.addEventListener('DOMContentLoaded', function () {
+        var alertElements = document.querySelectorAll('.alert-dismissible .btn-close');
+        alertElements.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var alert = this.parentElement;
+                alert.classList.remove('show');
+                alert.classList.add('fade');
+            });
+        });
+    });
+</script>
 @endsection
