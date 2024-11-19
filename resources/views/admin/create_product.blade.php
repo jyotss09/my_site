@@ -6,7 +6,7 @@
 <div class="container">
     <h1>Add New Product</h1>
 
-    <form action="{{ route('admin.storeProduct') }}" method="POST">
+    <form id="product_form" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="name">Name</label>
@@ -24,7 +24,9 @@
             <label for="image_url">Image URL</label>
             <input type="text" name="image_url" id="image_url" class="form-control">
         </div>
-        <button type="submit" class="btn btn-primary mt-3">Save Product</button>
+        <button type="submit" id="save_product" class="btn btn-primary mt-3">Save Product</button>
     </form>
 </div>
 @endsection
+
+@vite('resources/js/productForm.js')

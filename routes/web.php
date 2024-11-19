@@ -16,7 +16,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/products', [AdminController::class, 'products'])->name('admin.products');
     Route::get('/products/create', [AdminController::class, 'createProduct'])->name('admin.createProduct');
-    Route::post('/storeProduct', [AdminController::class, 'storeProduct'])->name('admin.storeProduct');
+    Route::post('/products/create', [AdminController::class, 'storeProduct'])->name('admin.storeProduct');
     Route::get('/products/{id}/edit', [AdminController::class, 'editProduct'])->name('admin.editProduct');
     Route::put('/updateProduct/{id}', [AdminController::class, 'updateProduct'])->name('admin.updateProduct');
     Route::delete('/deleteProduct/{id}', [AdminController::class, 'deleteProduct'])->name('admin.deleteProduct');
@@ -34,7 +34,7 @@ Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.s
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 
 Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
-Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
+Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
 
 // View cart - displays the contents of the cart
 Route::get('/cart', [CartController::class, 'view'])->name('cart.view');
